@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang = "en-US">
+<head>
+<meta charset="utf-8">
+<title>Author Name</title>
+<link rel="stylesheet" href="main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="jquery.waypoints.min.js"></script>
+<script src="jquery.scrollTo.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("ul.menu li a.home").click(function(){
+        //$("h1").hide();
+    });
+    $("ul.menu li a.news").click(function(){
+        //$("h1").show();
+    });
+    $("div.home").waypoint(function(direction){
+        console.log("home " + direction);
+        $("ul.menu li.home").css("color", "#8af");
+        $("ul.menu li.news").css("color", "white");
+        $("ul.menu li.papers").css("color", "white");
+        $("ul.menu li.contact").css("color", "white");
+    },{offset: "60px"});
+    
+    $("div.news").waypoint(function(direction){
+        console.log("news " + direction);
+        
+        if (direction == "down") {
+            $("ul.menu li.home").css("color", "white");
+            $("ul.menu li.news").css("color", "#8af");
+            $("ul.menu li.papers").css("color", "white");
+            $("ul.menu li.contact").css("color", "white");
+        } else {
+            $("ul.menu li.home").css("color", "#8af");
+            $("ul.menu li.news").css("color", "white");
+            $("ul.menu li.papers").css("color", "white");
+            $("ul.menu li.contact").css("color", "white");
+        }
+        
+    },{offset: "60px"});
+    
+    $("div.papers").waypoint(function(direction){
+        console.log("papers " + direction);
+        if (direction == "down") {
+            $("ul.menu li.home").css("color", "white");
+            $("ul.menu li.news").css("color", "white");
+            $("ul.menu li.papers").css("color", "#8af");
+            $("ul.menu li.contact").css("color", "white");
+        } else {
+            $("ul.menu li.home").css("color", "white");
+            $("ul.menu li.news").css("color", "#8af");
+            $("ul.menu li.papers").css("color", "white");
+            $("ul.menu li.contact").css("color", "white");
+        }
+    },{offset: "60px"});
+    
+    $("div.contact-waypoint").waypoint(function(direction){
+        console.log("contact " + direction);
+        if (direction == "down") {
+            $("ul.menu li.home").css("color", "white");
+            $("ul.menu li.news").css("color", "white");
+            $("ul.menu li.papers").css("color", "white");
+            $("ul.menu li.contact").css("color", "#8af");
+        } else {
+            $("ul.menu li.home").css("color", "white");
+            $("ul.menu li.news").css("color", "white");
+            $("ul.menu li.papers").css("color", "#8af");
+            $("ul.menu li.contact").css("color", "white");
+        }
+    },{offset: "100%"});
+    
+    $("ul.menu li a.menu-item").click(function(event){
+        console.log($(this).attr("href"));
+        $.scrollTo($(this).attr("href"), 500);
+        //$(this).css("color", "#8af");
+        return false;
+    });
+});    
+</script>
+</head>
+    
+<body>
+    
+<ul class="menu">
+    <li class="main"><a href="index.html"><b>Author Name</b></a></li>
+    <li class="home"><a href="#home" class="menu-item">Home</a></li>
+    <li class="news"><a href="#news" class="menu-item">News</a></li>
+    <li class="papers"><a href="#papers" class="menu-item">Papers</a></li>
+    <li class="contact"><a href="#contact" class="menu-item">Contact</a></li>
+</ul>
+
+<a id="home" class="anchor"></a>
+<div style="background-color: aliceblue" class="home">
+    <h1>Home</h1>
+    
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+</div>
+    
+<a id="news" class="anchor"></a>
+<div style="background-color:floralwhite" class="news">
+    <h1>News</h1>
+    
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+</div>
+
+<a id="papers" class="anchor"></a>
+<div style="background-color:aliceblue" class="papers">
+    <h1>Papers</h1>
+    
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+    1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>
+</div>
+    
+<a id="contact" class="anchor"></a>
+<div style="background-color:floralwhite" class="contact">
+    <h1>Contact</h1>
+    
+    1<br>1<br>1<br>1<br>1<br>1<br>1
+</div>
+    
+<div class = "contact-waypoint">
+</div>
+    
+
+</body>
