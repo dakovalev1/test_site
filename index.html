@@ -9,6 +9,7 @@
 <script src="jquery.scrollTo.min.js"></script>
 <script>
 $(document).ready(function(){
+    current_section = "";
     $("ul.menu li a.home").click(function(){
         //$("h1").hide();
     });
@@ -16,6 +17,8 @@ $(document).ready(function(){
         //$("h1").show();
     });
     $("div.home").waypoint(function(direction){
+        current_section = "home";
+        
         console.log("home " + direction);
         $("ul.menu li.home").css("color", "#8af");
         $("ul.menu li.news").css("color", "white");
@@ -27,11 +30,15 @@ $(document).ready(function(){
         console.log("news " + direction);
         
         if (direction == "down") {
+            current_section = "news";
+            
             $("ul.menu li.home").css("color", "white");
             $("ul.menu li.news").css("color", "#8af");
             $("ul.menu li.papers").css("color", "white");
             $("ul.menu li.contact").css("color", "white");
         } else {
+            current_section = "home";
+            
             $("ul.menu li.home").css("color", "#8af");
             $("ul.menu li.news").css("color", "white");
             $("ul.menu li.papers").css("color", "white");
@@ -43,11 +50,15 @@ $(document).ready(function(){
     $("div.papers").waypoint(function(direction){
         console.log("papers " + direction);
         if (direction == "down") {
+            current_section = "papers";
+            
             $("ul.menu li.home").css("color", "white");
             $("ul.menu li.news").css("color", "white");
             $("ul.menu li.papers").css("color", "#8af");
             $("ul.menu li.contact").css("color", "white");
         } else {
+            current_section = "news";
+            
             $("ul.menu li.home").css("color", "white");
             $("ul.menu li.news").css("color", "#8af");
             $("ul.menu li.papers").css("color", "white");
@@ -57,6 +68,7 @@ $(document).ready(function(){
     
     $("div.contact-waypoint").waypoint(function(direction){
         console.log("contact " + direction);
+        console.log(current_section);
         if (direction == "down") {
             $("ul.menu li.home").css("color", "white");
             $("ul.menu li.news").css("color", "white");
@@ -65,8 +77,10 @@ $(document).ready(function(){
         } else {
             $("ul.menu li.home").css("color", "white");
             $("ul.menu li.news").css("color", "white");
-            $("ul.menu li.papers").css("color", "#8af");
+            $("ul.menu li.papers").css("color", "white");
             $("ul.menu li.contact").css("color", "white");
+            
+            $("ul.menu li." + current_section).css("color", "#8af");
         }
     },{offset: "100%"});
     
